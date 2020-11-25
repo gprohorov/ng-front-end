@@ -1,17 +1,46 @@
 <div class="list row">
 
   <div class="col-md-6">
-    <h4>Items List</h4>
+    <h4>items List</h4>
     <ul class="list-group">
       <li
         class="list-group-item"
         *ngFor="let item of items; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveItem(item, i)"
       >
         {{ item.name }}
       </li>
     </ul>
-
-
   </div>
+  <div class="col-md-6">
+    <div *ngIf="currentItem">
+      <h4>item</h4>
+      <div>
+        <label><strong>name:</strong></label> {{ currentItem.name }}
+      </div>
+      <div>
+        <label><strong>Description:</strong></label>
+        {{ currentItem.description }}
+      </div>
 
+
+      <a class="badge badge-warning" routerLink="/items/{{ currentItem.id }}">
+        Edit
+      </a>
+
+      <button class="badge badge-danger mr-2" (click)="deleteItem()">
+        Delete
+      </button>
+
+    </div>
+
+
+
+
+    <div *ngIf="!currentItem">
+      <br />
+      <p>Please click on a item...</p>
+    </div>
+  </div>
 </div>

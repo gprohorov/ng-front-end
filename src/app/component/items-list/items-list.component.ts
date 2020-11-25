@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ItemService } from 'src/app/service/item.service';
+
 @Component({
   selector: 'app-items-list',
   templateUrl: './items-list.component.html',
@@ -9,7 +9,9 @@ import { ItemService } from 'src/app/service/item.service';
 export class ItemsListComponent implements OnInit {
 
   items: any;
-
+  currentItem = null;
+  currentIndex = -1;
+  name = '';
 
   constructor(private service: ItemService) { }
 
@@ -32,4 +34,13 @@ export class ItemsListComponent implements OnInit {
 
 
 
+  setActiveItem(item, index): void {
+    this.currentItem = item;
+    this.currentIndex = index;
+  }
+
+
+  deleteItem() {
+
+  }
 }

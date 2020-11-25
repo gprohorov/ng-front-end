@@ -7,7 +7,17 @@ import { AddItemComponent } from './component/add-item/add-item.component';
 import { ItemDetailsComponent } from './component/item-details/item-details.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
+const routes: Routes = [
+  { path: '', redirectTo: 'items', pathMatch: 'full' },
+  { path: 'items', component: ItemsListComponent },
+  { path: 'items/:id', component: ItemDetailsComponent },
+  { path: 'add', component: AddItemComponent }
+];
+
 
 @NgModule({
   declarations: [
@@ -20,7 +30,8 @@ import {RouterModule} from '@angular/router';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule.forRoot(routes),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

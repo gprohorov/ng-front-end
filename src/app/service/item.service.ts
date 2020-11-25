@@ -16,4 +16,7 @@ export class ItemService {
     return this.http.get(baseUrl);
   }
 
+  create(data: { description: string; name: string }): Observable<any> {
+    return null;
+  }
 }
