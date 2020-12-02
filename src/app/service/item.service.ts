@@ -16,8 +16,14 @@ export class ItemService {
     return this.http.get(baseUrl);
   }
 
-  create(data: { description: string; name: string }): Observable<any> {
-    return null;
+  create(data): Observable<any> {
+    return this.http.post(baseUrl, data);
+  }
+
+
+ // delete = id => this.http.delete(`${baseUrl}/${id}`);
+  delete(id): Observable<any> {
+    return this.http.delete(`${baseUrl}/${id}`);
   }
 
 

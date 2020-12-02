@@ -17,6 +17,9 @@
     <div *ngIf="currentItem">
       <h4>item</h4>
       <div>
+        <label><strong>id:</strong></label> {{ currentItem._id }}
+      </div>
+      <div>
         <label><strong>name:</strong></label> {{ currentItem.name }}
       </div>
       <div>
@@ -25,11 +28,11 @@
       </div>
 
 
-      <a class="badge badge-warning" routerLink="/items/{{ currentItem.id }}">
+      <a class="badge badge-warning" routerLink="/items/{{ currentItem._id }}">
         Edit
       </a>
 
-      <button class="badge badge-danger mr-2" (click)="deleteItem()">
+      <button class="badge badge-danger mr-2" (click)="deleteItem(currentItem._id)">
         Delete
       </button>
 

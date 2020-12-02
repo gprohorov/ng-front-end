@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from 'src/app/service/item.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-items-list',
@@ -12,6 +13,9 @@ export class ItemsListComponent implements OnInit {
   currentItem = null;
   currentIndex = -1;
   name = '';
+
+  private route: ActivatedRoute;
+  // private router: Router() { }
 
   constructor(private service: ItemService) { }
 
@@ -40,7 +44,15 @@ export class ItemsListComponent implements OnInit {
   }
 
 
-  deleteItem() {
-
+  deleteItem(id): void {
+    this.service.delete(id)
+      .subscribe(
+        response => {
+          console.log(response);
+        //  this.router.navigate(['/tutorials']);
+        },
+        error => {
+          console.log(error);
+        });
   }
 }
