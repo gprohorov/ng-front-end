@@ -27,4 +27,12 @@ export class ItemService {
   }
 
 
+  get(id): Observable<any> {
+    return this.http.get(`${baseUrl}/${id}`);
+  }
+
+  update(id, data): Observable<any>  {
+    return this.http.put(`${baseUrl}/${id}`, data);
+  }
+
 }

@@ -14,10 +14,11 @@ export class ItemsListComponent implements OnInit {
   currentIndex = -1;
   name = '';
 
-  private route: ActivatedRoute;
-  // private router: Router() { }
 
-  constructor(private service: ItemService) { }
+
+  constructor(private service: ItemService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.retrieveItems();
@@ -49,7 +50,8 @@ export class ItemsListComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-        //  this.router.navigate(['/tutorials']);
+          this.retrieveItems();
+
         },
         error => {
           console.log(error);
