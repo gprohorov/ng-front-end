@@ -21,10 +21,12 @@ export class ItemService {
   }
 
 
- // delete = id => this.http.delete(`${baseUrl}/${id}`);
-  delete(id): Observable<any> {
+ delete = id => this.http.delete(`${baseUrl}/${id}`);
+
+/*  delete(id): Observable<any> {
+    console.
     return this.http.delete(`${baseUrl}/${id}`);
-  }
+  }*/
 
 
   get(id): Observable<any> {
